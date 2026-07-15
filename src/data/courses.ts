@@ -22,6 +22,6 @@ export const courses: Course[] = [
     branch: "Computer Science and Engineering",
     institution: "Indian Institute of Information Technology, Guwahati",
     passingYear: "2027 (Expected)",
-    cgpa: "8.7",
+    cgpa: "7.53",
   },
 ];
