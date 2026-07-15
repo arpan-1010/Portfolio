@@ -27,10 +27,7 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} — Portfolio`,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
-  },
-  icons: {
-    icon: "/favicon.ico",
-  },
+  }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
