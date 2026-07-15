@@ -7,7 +7,6 @@ import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { href: "/about", label: "About" },
-  { href: "/#courses", label: "Courses" },
   { href: "/#projects", label: "Projects" },
   { href: "/#research", label: "Research" },
   { href: "/#contact", label: "Contact" },
@@ -24,9 +23,9 @@ export function Navbar() {
       className="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-md"
     >
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-        <Link href="/#" className="font-mono text-sm font-semibold">
+        <a href="/" className="font-mono text-sm font-semibold">
           arpan.dev
-        </Link>
+        </a>
 
         <ul className="hidden gap-6 text-sm sm:flex">
           {navLinks.map((link) => (
