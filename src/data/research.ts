@@ -12,7 +12,7 @@ export const researchItems: ResearchItem[] = [
 
   {
     slug: "seminar",
-    title: "Extreme Learning Machine with and without Backpropagation",
+    title: "Extreme Learning Machine with and without BackProp",
     tags: ["Iris Clasification", "Deep Learning"],
     stage: "Seminar",
     status : "Completed",
