@@ -11,7 +11,6 @@ export function Contact() {
   return (
     <section id="contact" className="mx-auto max-w-5xl px-6 py-16">
       <div className="grid gap-12 sm:grid-cols-2">
-        {/* Contact */}
         <div>
           <motion.h2
             custom={0}
@@ -50,7 +49,6 @@ export function Contact() {
           </motion.a>
         </div>
 
-        {/* Connect */}
         <div>
           <motion.h3
             custom={0}
