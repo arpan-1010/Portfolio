@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Give_You_Glory } from "next/font/google";
+import { Geist, Geist_Mono, Caveat } from "next/font/google";
 import { Footer } from "@/components/layout/footer";
 import { siteConfig } from "@/lib/seo";
 import "./globals.css";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
-const giveYouGlory = Give_You_Glory({
+const caveat = Caveat({
   variable: "--font-hello-script",
-  weight: "400",
+  weight: "600",
   subsets: ["latin"],
 });
 
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${giveYouGlory.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} antialiased`}>
         {children}
         <Footer />
       </body>
