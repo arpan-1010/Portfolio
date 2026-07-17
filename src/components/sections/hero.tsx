@@ -16,7 +16,7 @@ export function Hero() {
           initial="hidden"
           animate="visible"
           variants={fadeUp}
-          className="mb-4 font-mono text-lg text-accent font-semibold"
+          className="mb-2 text-lg font-light tracking-wide text-accent"
         >
           Hello from
         </motion.p>
