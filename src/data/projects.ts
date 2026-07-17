@@ -55,6 +55,6 @@ export const projects: Project[] = [
       "Integrated LLM-based document understanding with citation-aware retrieval, enabling users to summarize papers, explain complex concepts, and query specific sections while minimizing hallucinations."
     ],
     repoUrl: "https://github.com/arpan-1010/Research-paper-explainer",
-    liveUrl: "https://your-rag-deployment.com",
+    liveUrl: "https://www.google.com",
   },
 ];
