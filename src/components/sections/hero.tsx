@@ -16,7 +16,8 @@ export function Hero() {
           initial="hidden"
           animate="visible"
           variants={fadeUp}
-          className="mb-2 text-lg font-light tracking-wide text-accent"
+          className="mb-2 text-4xl text-accent"
+          style={{ fontFamily: "var(--font-hello-script)" }}
         >
           Hello from
         </motion.p>
