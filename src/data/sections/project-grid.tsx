@@ -6,7 +6,7 @@ import { ProjectDialog } from "@/components/ui/project-dialog";
 import { projects, type Project, type ProjectCategory } from "@/data/projects";
 
 type Filter = "All" | ProjectCategory;
-const filters: Filter[] = ["All", "Full-stack", "Game", "AI / ML"];
+const filters: Filter[] = ["All", "Full-stack", "Game", "AI / ML", "Web3"];
 
 export function ProjectsGrid() {
   const [filter, setFilter] = useState<Filter>("All");

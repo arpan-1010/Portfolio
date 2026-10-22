@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "./theme-toggle";
 
 const navLinks = [
   { href: "/about", label: "About" },
@@ -23,9 +24,9 @@ export function Navbar() {
       className="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-md"
     >
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-        <link href="/" className="font-mono text-sm font-semibold">
-          arpan.dev
-        </link>
+        <Link href="/" className="font-mono text-sm font-semibold">
+    arpan.dev
+  </Link>
 
         <ul className="hidden gap-6 text-sm sm:flex">
           {navLinks.map((link) => (

@@ -1,5 +1,5 @@
 
-export type ProjectCategory = "Full-stack" | "Game" | "AI / ML";
+export type ProjectCategory = "Full-stack" | "Game" | "AI / ML" | "Web3";
 
 export interface Project {
   slug: string;
@@ -63,5 +63,22 @@ export const projects: Project[] = [
     ],
     repoUrl: "https://github.com/arpan-1010/Research-paper-explainer",
     liveUrl: "https://www.google.com",
+  },
+
+  {
+  slug: "tidaliq",
+  title: "TidalIQ — On-chain Whale Tracker",
+  paragraph: "Real-time large-transaction tracker with an AI insights layer",
+  tags: ["Rust", "Next.js", "Drizzle", "Supabase", "Viem"],
+  category: "Web3",
+  featured: true,
+  highlights: [
+    "Built a full-stack Web3 platform that tracks large on-chain transfers, polling Alchemy every 12 seconds for ETH and ERC-20 (USDC, USDT, DAI, WBTC) whale transactions via Viem.",
+    "Organized the project as a Bun + Turborepo monorepo with a Next.js frontend, a Rust API backend, and a shared TypeScript types package.",
+    "Designed the Supabase/PostgreSQL schema with Drizzle ORM (transactions, wallets, alerts, alert events) to support alerting and wallet-level analysis.",
+    "Currently building an AI layer on top of the tracker to turn raw whale movements into readable insights.",
+  ],
+  repoUrl: "https://github.com/arpan-1010/tidal-iq",
+  liveUrl: "https://tidal-iq.vercel.app/",
   },
 ];

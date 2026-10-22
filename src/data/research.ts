@@ -1,29 +1,37 @@
+export interface ResearchSlide {
+  label: string;
+  url: string;
+}
+
 export interface ResearchItem {
   slug: string;
   title: string;
   tags: string[];
   stage: "Seminar" | "Pre-thesis" | "Thesis";
   status: "Completed" | "Ongoing";
-  slidesUrl?: string;
   highlights: string[];
   supervisor: string;
+  slides?: ResearchSlide[];
 }
 
 export const researchItems: ResearchItem[] = [
-
   {
     slug: "seminar",
     title: "Extreme Learning Machine with and without BackProp",
     tags: ["Iris Classification", "Deep Learning"],
     stage: "Seminar",
-    status : "Completed",
+    status: "Completed",
     highlights: [
       "Presented a seminar on Extreme Learning Machine with Backpropagation (ELM-BP), explaining how iterative weight optimization improves the predictive performance of standard ELM while balancing training speed and accuracy.",
       "Implemented and evaluated ELM-BP for Iris dataset classification using NumPy, Pandas, and Matplotlib, with a sigmoid activation function and an 80:20 train-test split.",
       "Conducted a comparative analysis between standard ELM and ELM-BP, demonstrating an improvement in test accuracy from 80.0% to 96.67% through backpropagation-based parameter refinement.",
-      "Explained the mathematical foundations, working mechanism, applications, advantages, and limitations of ELM-BP, including gradient-based optimization, convergence, and real-world use cases in classification, regression, and medical diagnosis."
+      "Explained the mathematical foundations, working mechanism, applications, advantages, and limitations of ELM-BP, including gradient-based optimization, convergence, and real-world use cases in classification, regression, and medical diagnosis.",
     ],
     supervisor: "Dr. Parashjyoti Borah",
+    slides: [
+      { label: "Midsem", url: "https://docs.google.com/presentation/d/1QDJwqliK130wDond-wVC_NXP7KpOEWkc/edit?usp=sharing&ouid=103164680068459629447&rtpof=true&sd=true" },
+      { label: "Endsem", url: "https://docs.google.com/presentation/d/1RNgWH_zSBzxaFzQMbdsTFcQMNFR0zFyq/edit?usp=sharing&ouid=103164680068459629447&rtpof=true&sd=true" },
+    ],
   },
 
   {
@@ -31,14 +39,18 @@ export const researchItems: ResearchItem[] = [
     title: "Normalization Dynamics in CNNs",
     tags: ["PyTorch", "CIFAR-10", "Deep Learning"],
     stage: "Pre-thesis",
-    status : "Completed",
+    status: "Completed",
     highlights: [
       "Conducted a comparative study of Batch Normalization, Layer Normalization, Group Normalization, and No Normalization on a CNN trained with the CIFAR-10 dataset, evaluating convergence speed, accuracy, and training stability.",
       "Developed a hook-based instrumentation framework in PyTorch using forward and backward hooks to capture layer-wise activation statistics and gradient norms, enabling in-depth analysis of internal training dynamics.",
       "Analyzed gradient flow, activation drift, and heatmaps to investigate vanishing/exploding gradients and compare normalization techniques, revealing Batch Normalization as the most stable and best-performing approach.",
-      "Optimized CNN hyperparameters and evaluated training behavior through loss, accuracy, convergence, and activation stability analyses, providing interpretable insights beyond conventional performance metrics."
+      "Optimized CNN hyperparameters and evaluated training behavior through loss, accuracy, convergence, and activation stability analyses, providing interpretable insights beyond conventional performance metrics.",
     ],
     supervisor: "Dr. Parashjyoti Borah",
+    slides: [
+      { label: "Midsem", url: "https://docs.google.com/presentation/d/1cMed_JEZoahPCnmsvEh3h94As58aiLY8/edit?usp=sharing&ouid=103164680068459629447&rtpof=true&sd=true" },
+      { label: "Endsem", url: "https://docs.google.com/presentation/d/1YsLBzyeFTZPMDaOy46xRH4pg4h5bGAhV/edit?usp=sharing&ouid=103164680068459629447&rtpof=true&sd=true" },
+    ],
   },
 
   {
@@ -46,13 +58,17 @@ export const researchItems: ResearchItem[] = [
     title: "Transformer Architectures & Efficient Attention Mechanisms",
     tags: ["PyTorch", "NLP"],
     stage: "Thesis",
-    status : "Ongoing",
+    status: "Ongoing",
     highlights: [
       "Conducted an in-depth study of four foundational Transformer papers—Attention Is All You Need, Reformer, Linformer, and Performers—to understand the evolution of scalable self-attention mechanisms for large-scale sequence modeling.",
       "Analyzed and compared efficient attention techniques including LSH Attention (Reformer), Low-Rank Projection (Linformer), and FAVOR+ Kernel Attention (Performers), evaluating their computational complexity, memory efficiency, and scalability against standard self-attention.",
       "Developed a strong understanding of Transformer internals, including multi-head self-attention, positional encoding, feed-forward networks, residual connections, layer normalization, and the mathematical foundations behind linear and sparse attention.",
-      "Implemented and experimented with Transformer variants in PyTorch, reproducing core components and gaining hands-on experience with efficient attention architectures for modern NLP and deep learning applications."
+      "Implemented and experimented with Transformer variants in PyTorch, reproducing core components and gaining hands-on experience with efficient attention architectures for modern NLP and deep learning applications.",
     ],
     supervisor: "Dr. Parashjyoti Borah",
+    slides: [
+      { label: "Midsem", url: "https://docs.google.com/presentation/d/16NpBB4WNhC79iwGtFZ7R1MEnZK5mO192/edit?usp=sharing&ouid=103164680068459629447&rtpof=true&sd=true" },
+      //{ label: "Endsem", url:  },
+    ],
   },
 ];

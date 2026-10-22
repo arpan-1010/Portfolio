@@ -85,7 +85,7 @@ export function Contact() {
             <p role="status" aria-live="polite" className="min-h-5 text-sm">
               {status === "sent" && <span className="text-primary">Thanks! Your message is on its way.</span>}
               {status === "error" && (
-                <span className="text-red-600">
+                <span className="text-destructive">
                   Could not send. Please email me directly below.
                 </span>
               )}
