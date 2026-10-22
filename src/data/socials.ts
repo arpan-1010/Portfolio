@@ -9,8 +9,8 @@ export interface Social {
 }
 
 export const socials: Social[] = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/arpan-mondal03/", icon: LinkedinIcon },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/arpan-mondal03", icon: LinkedinIcon },
   { label: "Facebook", href: "https://www.facebook.com/arpanmondal03", icon: SiFacebook },
-  { label: "Instagram", href: "https://www.instagram.com/i.arpan_404/", icon: SiInstagram },
+  { label: "Instagram", href: "https://www.instagram.com/vision_subscriber03", icon: SiInstagram },
   { label: "X", href: "https://x.com/Arpan_Mondal03", icon: SiX },
 ];

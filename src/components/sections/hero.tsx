@@ -14,16 +14,6 @@ export function Hero() {
       <div className="bg-grid pointer-events-none absolute inset-0 -z-10" />
 
       <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
-        <motion.span
-          custom={0}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          className="mb-6 rounded-full border border-border bg-card/60 px-4 py-1.5 font-mono text-xs text-muted-foreground backdrop-blur"
-        >
-          M.Tech CSE · IIIT Guwahati
-        </motion.span>
-
         <motion.p
           custom={1}
           initial="hidden"
@@ -39,7 +29,7 @@ export function Hero() {
           initial="hidden"
           animate="visible"
           variants={fadeUp}
-          className="text-gradient text-5xl font-semibold tracking-tight sm:text-7xl"
+          className="text-gradient pb-2 text-5xl font-semibold leading-[1.15] tracking-tight sm:text-7xl"
         >
           Arpan Mondal
         </motion.h1>

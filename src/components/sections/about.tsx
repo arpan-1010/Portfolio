@@ -25,7 +25,7 @@ export function About() {
         variants={fadeUp}
         className="text-lg leading-relaxed text-muted-foreground"
       >
-        Currently I'm an M.Tech CSE student at Indian Institute of Information Technology, Guwahati, developing across full-stack
+        Currently I am an M.Tech CSE student at Indian Institute of Information Technology, Guwahati, developing across full-stack
         development, and AI/ML applications. My current thesis work focuses on different strategies of Transformers,
         under the supervision of Dr. Parashjyoti Borah. Outside research, I build and productionize things like real-time applications and AI/ML applications.
         <br />

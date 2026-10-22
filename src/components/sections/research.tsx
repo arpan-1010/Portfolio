@@ -1,72 +1,112 @@
 "use client";
 
-import { motion } from "motion/react";
-import { ExternalLink, Presentation } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import type { ResearchItem } from "@/data/research";
+import { useState } from "react";
+import Link from "next/link";
+import { motion, AnimatePresence } from "motion/react";
+import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "@/components/layout/theme-toggle";
 
-export function ResearchCard({
-  project,
-  onClick,
-}: {
-  project: ResearchItem;
-  onClick: () => void;
-}) {
+const navLinks = [
+  { href: "/about", label: "About" },
+  { href: "/projects", label: "Projects" },
+  { href: "/#research", label: "Research" },
+  { href: "/#contact", label: "Contact" },
+];
+
+export function Navbar() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <motion.div
-      role="button"
-      tabIndex={0}
-      onClick={onClick}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          onClick();
-        }
-      }}
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
+    <motion.header
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      whileHover={{ y: -4 }}
-      className="relative flex w-full cursor-pointer flex-col rounded-[var(--radius)] border border-dashed border-accent/50 bg-accent/5 p-6 text-left transition-colors hover:border-accent hover:bg-accent/10"
+      className="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-md"
     >
-      <span
-        className={`absolute right-4 top-4 rounded-full px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wide ${
-          project.status === "Completed"
-            ? "bg-primary/15 text-primary"
-            : "bg-accent/20 text-accent"
-        }`}
-      >
-        {project.status}
-      </span>
+      <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+        <Link href="/" className="font-mono text-sm font-semibold">
+          arpan.dev
+        </Link>
 
-      <p className="mb-2 font-mono text-xs uppercase tracking-wider text-accent">
-        {project.stage}
-      </p>
-      <h4 className="mb-4 max-w-[85%] text-lg font-semibold">{project.title}</h4>
+        <div className="flex items-center gap-4">
+          <ul className="hidden gap-6 text-sm sm:flex">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-muted-foreground transition-colors hover:text-primary"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
 
-      <div className="flex flex-wrap gap-2">
-        {project.tags.map((tag) => (
-          <Badge key={tag} variant="outline" className="border-accent/40 text-xs text-accent">
-            {tag}
-          </Badge>
-        ))}
-      </div>
+          <ThemeToggle />
 
-      {project.slidesUrl && (
-        <a
-          href={project.slidesUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={(e) => e.stopPropagation()}
-          onKeyDown={(e) => e.stopPropagation()}
-          className="mt-5 inline-flex w-fit items-center gap-2 rounded-[var(--radius)] border border-accent/40 bg-background px-3 py-1.5 text-sm font-medium text-accent transition-colors hover:border-accent hover:bg-accent/10"
-        >
-          <Presentation className="h-4 w-4" />
-          View slides
-          <ExternalLink className="h-3.5 w-3.5" />
-        </a>
-      )}
-    </motion.div>
+          <button
+            type="button"
+            onClick={() => setOpen((prev) => !prev)}
+            className="flex items-center justify-center sm:hidden"
+            aria-label="Toggle menu"
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              {open ? (
+                <motion.span
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <X className="h-5 w-5" />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="open"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Menu className="h-5 w-5" />
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </button>
+        </div>
+      </nav>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden border-t border-border/60 sm:hidden"
+          >
+            <ul className="flex flex-col gap-1 px-6 py-4">
+              {navLinks.map((link, i) => (
+                <motion.li
+                  key={link.href}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.2, delay: i * 0.05 }}
+                >
+                  <Link
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className="block py-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    {link.label}
+                  </Link>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 }

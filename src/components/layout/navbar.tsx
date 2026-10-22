@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
-import { ThemeToggle } from "./theme-toggle";
+import { ThemeToggle } from "@/components/layout/theme-toggle";
 
 const navLinks = [
   { href: "/about", label: "About" },
@@ -41,6 +41,8 @@ export function Navbar() {
           ))}
         </ul>
 
+          <ThemeToggle />
+            
         <button
           type="button"
           onClick={() => setOpen((prev) => !prev)}
