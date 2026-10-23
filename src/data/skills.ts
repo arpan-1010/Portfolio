@@ -1,4 +1,4 @@
-export type SkillCategory = "Web Development" | "ML/AI" | "Tools";
+export type SkillCategory = "Web Development" | "Web3 Development" | "ML/AI" | "Tools";
 
 export interface Skill {
   name: string;
@@ -7,6 +7,7 @@ export interface Skill {
 
 export const skills: Skill[] = [
   { name: "TypeScript", category: "Web Development" },
+  { name: "Rust", category: "Web3 Development" },
   { name: "React", category: "Web Development" },
   { name: "TailwindCSS", category: "Web Development" },
   { name: "ShadCn", category: "Web Development" },

@@ -19,7 +19,7 @@ export function Contact() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = e.currentTarget; // grab before the await
+    const form = e.currentTarget;
     setStatus("sending");
     try {
       const res = await fetch("/api/contact", {
@@ -41,7 +41,7 @@ export function Contact() {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      /* clipboard blocked: the mailto link below still works */
+      
     }
   }
 
@@ -66,7 +66,7 @@ export function Contact() {
             <input name="name" required maxLength={100} placeholder="Your name" className={fieldClass} />
             <input name="email" type="email" required maxLength={200} placeholder="Your email" className={fieldClass} />
             <textarea name="message" required minLength={5} maxLength={5000} rows={5} placeholder="Your message" className={fieldClass} />
-            {/* honeypot: real users never see or fill this */}
+            
             <input name="website" tabIndex={-1} autoComplete="off" aria-hidden className="hidden" />
 
             <button

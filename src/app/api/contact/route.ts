@@ -14,7 +14,6 @@ export async function POST(req: Request) {
   const message = String(body.message ?? "").trim();
   const honeypot = String(body.website ?? "");
 
-  // Bots fill the hidden field; pretend success and send nothing.
   if (honeypot) return NextResponse.json({ ok: true });
 
   const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -36,7 +35,7 @@ export async function POST(req: Request) {
   const { error } = await resend.emails.send({
     from: "Portfolio <onboarding@resend.dev>",
     to,
-    replyTo: email, // hitting "Reply" in Gmail answers the visitor
+    replyTo: email,
     subject: `Portfolio message from ${name}`,
     text: `From: ${name} <${email}>\n\n${message}`,
   });
